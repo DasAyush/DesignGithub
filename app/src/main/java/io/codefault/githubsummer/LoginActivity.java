@@ -1,5 +1,6 @@
 package io.codefault.githubsummer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
@@ -19,9 +20,9 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    @BindView(R.id.et_github_password) EditText username;
+    @BindView(R.id.et_github_username) EditText username;
 
-    @BindView(R.id.et_github_username) EditText password;
+    @BindView(R.id.et_github_password) EditText password;
 
     @BindView(R.id.btnLogin) Button login;
 
@@ -43,12 +44,12 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String userName = username.getText().toString().trim();
+                final String userName = username.getText().toString().trim();
                 String pass = password.getText().toString().trim();
 
                 AuthenticationService obj = ServiceClient.createInterface(AuthenticationService.class);
 
-                String encodedString = userName + ":" + pass;
+                final String encodedString = pass + ":" + userName;
                 String AuthHeader = "Basic " + Base64.encodeToString(encodedString.getBytes(), Base64.NO_WRAP);
 
                 Call<Boolean> value = obj.basicAuthUser(AuthHeader);
@@ -57,6 +58,11 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                         Toast.makeText(getBaseContext(), "Authentication Successfull", Toast.LENGTH_SHORT).show();
+                        ServiceClient.setAuthEncoded(Base64.encodeToString(encodedString.getBytes(), Base64.NO_WRAP));
+                        ServiceClient.setUsername(userName);
+                        Intent intent = new Intent(getBaseContext(), Index.class);
+                        startActivity(intent);
+                        finish();
                     }
 
                     @Override

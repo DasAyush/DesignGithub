@@ -1,6 +1,5 @@
 package io.codefault.githubsummer.ServiceClient;
 
-import io.codefault.githubsummer.ApiInterfaces.AuthenticationService;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -11,6 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 final public class ServiceClient {
 
     private static Retrofit client;
+    private static String username;
+    private static String authEncoded;
 
     public static void initializeClient() {
         client = new Retrofit.Builder()
@@ -26,4 +27,21 @@ final public class ServiceClient {
     public static <T> T createInterface(Class<T> tClass) {
         return client.create(tClass);
     }
+
+    public static void setAuthEncoded(String authEncoded) {
+        ServiceClient.authEncoded = authEncoded;
+    }
+
+    public static String getAuthEncoded() {
+        return authEncoded;
+    }
+
+    public static void setUsername(String username) {
+        ServiceClient.username = username;
+    }
+
+    public static String getUsername() {
+        return username;
+    }
+
 }
