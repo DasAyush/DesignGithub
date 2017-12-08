@@ -10,11 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.codefault.githubsummer.ApiInterfaces.AuthenticationService;
 import io.codefault.githubsummer.ServiceClient.ServiceClient;
 import retrofit2.Call;
+import retrofit2.CallAdapter;
 import retrofit2.Callback;
 import retrofit2.Response;
 
@@ -49,14 +52,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 AuthenticationService obj = ServiceClient.createInterface(AuthenticationService.class);
 
-                final String encodedString = pass + ":" + userName;
+                final String encodedString = userName + ":" + pass;
                 String AuthHeader = "Basic " + Base64.encodeToString(encodedString.getBytes(), Base64.NO_WRAP);
 
-                Call<Boolean> value = obj.basicAuthUser(AuthHeader);
+                Call<Void> value = obj.basicAuthUser(AuthHeader);
 
-                value.enqueue(new Callback<Boolean>() {
+                value.enqueue(new Callback<Void>() {
                     @Override
-                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                    public void onResponse(Call<Void> call, Response<Void> response) {
                         Toast.makeText(getBaseContext(), "Authentication Successfull", Toast.LENGTH_SHORT).show();
                         ServiceClient.setAuthEncoded(Base64.encodeToString(encodedString.getBytes(), Base64.NO_WRAP));
                         ServiceClient.setUsername(userName);
@@ -66,7 +69,8 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<Boolean> call, Throwable t) {
+                    public void onFailure(Call<Void> call, Throwable t) {
+                        Log.d("Error", t.getMessage());
                         Toast.makeText(getBaseContext(), "Authentication Not Successfull", Toast.LENGTH_SHORT).show();
                     }
                 });

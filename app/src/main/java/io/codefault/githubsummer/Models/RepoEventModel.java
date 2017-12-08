@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by yashladha on 8/12/17.
  */
 
-public class RepoModel {
+public class RepoEventModel {
 
     @SerializedName("name")
     @Expose

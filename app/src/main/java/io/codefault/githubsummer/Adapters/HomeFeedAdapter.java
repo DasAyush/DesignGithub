@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
-import io.codefault.githubsummer.Models.CommentModel;
+import io.codefault.githubsummer.Models.CommentEventModel;
 import io.codefault.githubsummer.Models.Feed;
 import io.codefault.githubsummer.R;
 
@@ -55,16 +55,16 @@ public class HomeFeedAdapter extends RecyclerView.Adapter<HomeFeedAdapter.ViewHo
         String concTypeEvent = "";
         switch (type) {
             case "PullRequestReviewCommentEvent":
-                concTypeEvent = "Commented on the pull request #" + String.valueOf(tempFeed.getPayLoadModel().getPullRequestModel().getNumber());
+                concTypeEvent = "Commented on the pull request #" + String.valueOf(tempFeed.getPayLoadModel().getPullRequestEventModel().getNumber());
                 break;
             case "IssuesEvent":
-                concTypeEvent = "Opened an issue #" + String.valueOf(tempFeed.getPayLoadModel().getIssueModel().getNumber());
+                concTypeEvent = "Opened an issue #" + String.valueOf(tempFeed.getPayLoadModel().getIssueEventModel().getNumber());
                 break;
             case "IssueCommentEvent":
-                concTypeEvent = "Commented on issue #" + String.valueOf(tempFeed.getPayLoadModel().getIssueModel().getNumber());
+                concTypeEvent = "Commented on issue #" + String.valueOf(tempFeed.getPayLoadModel().getIssueEventModel().getNumber());
                 break;
             case "PullRequestEvent":
-                concTypeEvent = "a pull request #" + String.valueOf(tempFeed.getPayLoadModel().getPullRequestModel().getNumber());
+                concTypeEvent = "a pull request #" + String.valueOf(tempFeed.getPayLoadModel().getPullRequestEventModel().getNumber());
                 String createdStatus = tempFeed.getPayLoadModel().getAction();
                 char[] tempArr = createdStatus.toCharArray();
                 tempArr[0] = (char)(tempArr[0] - 32);
@@ -72,13 +72,13 @@ public class HomeFeedAdapter extends RecyclerView.Adapter<HomeFeedAdapter.ViewHo
                 concTypeEvent = generateString(tempArr) + concTypeEvent;
                 break;
             case "PushEvent":
-                concTypeEvent = "Pushed to " + tempFeed.getRepoModel().getName();
+                concTypeEvent = "Pushed to " + tempFeed.getRepoEventModel().getName();
                 break;
         }
         String titleText = tempFeed.getActor().getLogin() + " " + concTypeEvent;
         holder.title.setText(titleText);
 
-        CommentModel comment = tempFeed.getPayLoadModel().getComment();
+        CommentEventModel comment = tempFeed.getPayLoadModel().getComment();
         if (comment != null) {
             holder.description.setText(comment.getBody());
         }
