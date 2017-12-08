@@ -30,14 +30,14 @@ public class Feed {
 
     @SerializedName("repo")
     @Expose
-    private RepoModel repoModel;
+    private RepoEventModel repoEventModel;
 
-    public RepoModel getRepoModel() {
-        return repoModel;
+    public RepoEventModel getRepoEventModel() {
+        return repoEventModel;
     }
 
-    public void setRepoModel(RepoModel repoModel) {
-        this.repoModel = repoModel;
+    public void setRepoEventModel(RepoEventModel repoEventModel) {
+        this.repoEventModel = repoEventModel;
     }
 
     public PayLoadModel getPayLoadModel() {

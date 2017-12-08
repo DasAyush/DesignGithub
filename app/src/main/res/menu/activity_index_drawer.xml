@@ -13,9 +13,9 @@
             android:icon="@drawable/ic_trending"
             android:title="Trending" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_issues"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="Issues" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"

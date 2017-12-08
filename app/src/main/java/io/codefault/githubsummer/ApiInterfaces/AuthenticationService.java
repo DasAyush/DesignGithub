@@ -11,6 +11,6 @@ import retrofit2.http.Header;
 public interface AuthenticationService {
 
     @GET("/")
-    Call<Boolean> basicAuthUser(@Header("Authorization") String authHeader);
+    Call<Void> basicAuthUser(@Header("Authorization") String authHeader);
 
 }

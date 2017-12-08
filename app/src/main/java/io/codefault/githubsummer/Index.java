@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import io.codefault.githubsummer.Fragments.Home;
+import io.codefault.githubsummer.Fragments.Issue;
 
 public class Index extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -107,13 +108,11 @@ public class Index extends AppCompatActivity
         Fragment fragment = null;
 
         if (id == R.id.nav_home) {
-            if (fragment == null) {
-                fragment = new Home();
-            }
+            fragment = new Home();
         } else if (id == R.id.nav_trending) {
 
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.nav_issues) {
+            fragment = new Issue();
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by yashladha on 7/12/17.
  */
 
-public class PullRequestModel {
+public class PullRequestEventModel {
 
     @SerializedName("title")
     @Expose

@@ -11,7 +11,7 @@ public class PayLoadModel {
 
     @SerializedName("comment")
     @Expose
-    private CommentModel comment;
+    private CommentEventModel comment;
 
     @SerializedName("url")
     @Expose
@@ -19,7 +19,7 @@ public class PayLoadModel {
 
     @SerializedName("pull_request")
     @Expose
-    private PullRequestModel pullRequestModel;
+    private PullRequestEventModel pullRequestEventModel;
 
     @SerializedName("action")
     @Expose
@@ -27,7 +27,7 @@ public class PayLoadModel {
 
     @SerializedName("issue")
     @Expose
-    private IssueModel issueModel;
+    private IssueEventModel issueEventModel;
 
     public String getAction() {
         return action;
@@ -37,20 +37,20 @@ public class PayLoadModel {
         this.action = action;
     }
 
-    public IssueModel getIssueModel() {
-        return issueModel;
+    public IssueEventModel getIssueEventModel() {
+        return issueEventModel;
     }
 
-    public void setIssueModel(IssueModel issueModel) {
-        this.issueModel = issueModel;
+    public void setIssueEventModel(IssueEventModel issueEventModel) {
+        this.issueEventModel = issueEventModel;
     }
 
-    public PullRequestModel getPullRequestModel() {
-        return pullRequestModel;
+    public PullRequestEventModel getPullRequestEventModel() {
+        return pullRequestEventModel;
     }
 
-    public void setPullRequestModel(PullRequestModel pullRequestModel) {
-        this.pullRequestModel = pullRequestModel;
+    public void setPullRequestEventModel(PullRequestEventModel pullRequestEventModel) {
+        this.pullRequestEventModel = pullRequestEventModel;
     }
 
     public String getUrl() {
@@ -61,11 +61,11 @@ public class PayLoadModel {
         this.url = url;
     }
 
-    public CommentModel getComment() {
+    public CommentEventModel getComment() {
         return comment;
     }
 
-    public void setComment(CommentModel comment) {
+    public void setComment(CommentEventModel comment) {
         this.comment = comment;
     }
 }
