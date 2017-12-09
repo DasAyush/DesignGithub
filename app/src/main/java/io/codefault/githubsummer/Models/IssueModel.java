@@ -3,14 +3,13 @@ package io.codefault.githubsummer.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * Created by yashladha on 8/12/17.
  */
 
-public class IssueModel {
+public class IssueModel implements Serializable {
 
     @SerializedName("number")
     @Expose
@@ -27,6 +26,10 @@ public class IssueModel {
     @SerializedName("state")
     @Expose
     private String state;
+
+    @SerializedName("repository")
+    @Expose
+    private RepositoryModel repository;
 
     @SerializedName("locked")
     @Expose
@@ -55,6 +58,14 @@ public class IssueModel {
     @SerializedName("body")
     @Expose
     private String body;
+
+    public RepositoryModel getRepository() {
+        return repository;
+    }
+
+    public void setRepository(RepositoryModel repository) {
+        this.repository = repository;
+    }
 
     public int getNumber() {
         return number;

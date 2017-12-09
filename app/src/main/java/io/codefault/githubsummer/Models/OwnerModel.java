@@ -6,10 +6,10 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 /**
- * Created by yashladha on 8/12/17.
+ * Created by yashladha on 9/12/17.
  */
 
-public class UserModel implements Serializable{
+public class OwnerModel implements Serializable {
 
     @SerializedName("login")
     @Expose
@@ -17,11 +17,15 @@ public class UserModel implements Serializable{
 
     @SerializedName("avatar_url")
     @Expose
-    private String avataarUrl;
+    private String avatarUrl;
 
     @SerializedName("type")
     @Expose
     private String type;
+
+    @SerializedName("site_admin")
+    @Expose
+    private boolean siteAdmin;
 
     public String getName() {
         return name;
@@ -31,12 +35,12 @@ public class UserModel implements Serializable{
         this.name = name;
     }
 
-    public String getAvataarUrl() {
-        return avataarUrl;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
-    public void setAvataarUrl(String avataarUrl) {
-        this.avataarUrl = avataarUrl;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public String getType() {
@@ -45,5 +49,13 @@ public class UserModel implements Serializable{
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public boolean isSiteAdmin() {
+        return siteAdmin;
+    }
+
+    public void setSiteAdmin(boolean siteAdmin) {
+        this.siteAdmin = siteAdmin;
     }
 }

@@ -1,17 +1,21 @@
 package io.codefault.githubsummer.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import io.codefault.githubsummer.IssueElab;
 import io.codefault.githubsummer.Models.IssueModel;
 import io.codefault.githubsummer.R;
 
@@ -67,7 +71,7 @@ public class IssueListAdapter extends RecyclerView.Adapter<IssueListAdapter.View
         TextView creationDate;
         TextView comments;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(final View itemView) {
             super(itemView);
 
             avatarUrl = itemView.findViewById(R.id.cv_issue_avatar);
@@ -75,6 +79,22 @@ public class IssueListAdapter extends RecyclerView.Adapter<IssueListAdapter.View
             title = itemView.findViewById(R.id.tv_issue_title);
             creationDate = itemView.findViewById(R.id.tv_issue_creation_date);
             comments = itemView.findViewById(R.id.tv_issue_no_comments);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Bundle bundle = new Bundle();
+
+                    int pos = getAdapterPosition();
+                    IssueModel tempIssue = list.get(pos);
+                    bundle.putSerializable("Issue", tempIssue);
+
+                    Intent intent = new Intent(mContext, IssueElab.class);
+                    intent.putExtra("payload", bundle);
+                    mContext.startActivity(intent);
+                }
+            });
 
         }
     }
