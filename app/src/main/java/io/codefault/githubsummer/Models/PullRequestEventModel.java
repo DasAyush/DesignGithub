@@ -41,6 +41,78 @@ public class PullRequestEventModel {
     @Expose
     private String mergedAt;
 
+    @SerializedName("assignees")
+    @Expose
+    private String assignees;
+
+    @SerializedName("user")
+    @Expose
+    private String user;
+
+    @SerializedName("head")
+    @Expose
+    private String head;
+
+    @SerializedName("base")
+    @Expose
+    private String base;
+
+    @SerializedName("requested_reviewers")
+    @Expose
+    private String requestedReviewers;
+
+    @SerializedName("milestone")
+    @Expose
+    private String milestone;
+
+    @SerializedName("links")
+    @Expose
+    private String links;
+
+    @SerializedName("author_association")
+    @Expose
+    private String authorAssociation;
+
+    public String getLinks() {
+        return links;
+    }
+
+    public void setLinks(String links) {
+        this.links = links;
+    }
+
+    public String getAuthorAssociation() {
+        return authorAssociation;
+    }
+
+    public void setAuthorAssociation(String authorAssociation) {
+        this.authorAssociation = authorAssociation;
+    }
+
+    public String getAssignees() {
+        return assignees;
+    }
+
+    public void setAssignees(String assignees) {
+        this.assignees = assignees;
+    }
+
+    public String getRequestedReviewers() {
+        return requestedReviewers;
+    }
+
+    public void setRequestedReviewers(String requestedReviewers) {
+        this.requestedReviewers = requestedReviewers;
+    }
+
+    public String getMilestone() {
+        return milestone;
+    }
+
+    public void setMilestone(String milestone) {
+        this.milestone = milestone;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -104,4 +176,6 @@ public class PullRequestEventModel {
     public void setMergedAt(String mergedAt) {
         this.mergedAt = mergedAt;
     }
+
+
 }
