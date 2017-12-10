@@ -1,6 +1,7 @@
 package io.codefault.githubsummer;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -17,14 +18,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.util.Objects;
-
 import io.codefault.githubsummer.Fragments.Home;
 import io.codefault.githubsummer.Fragments.Issue;
+import io.codefault.githubsummer.Fragments.Organization;
 import io.codefault.githubsummer.Fragments.PullRequest;
+import io.codefault.githubsummer.Fragments.Repo;
 
 public class Index extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Menu menuBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,7 @@ public class Index extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.index, menu);
+        menuBar = menu;
         return true;
     }
 
@@ -106,19 +110,28 @@ public class Index extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     private void InflateClick(int id) {
         Fragment fragment = null;
-        String title = "";
 
         if (id == R.id.nav_home) {
             fragment = new Home();
-            title = "Home";
-        } else if (id == R.id.nav_trending) {
+        }
+        else if (id == R.id.nav_trending) {
 
         } else if (id == R.id.nav_issues) {
             fragment = new Issue();
-              title = "Issues";
-        }else if (id == R.id.nav_pulls) {
-            fragment = new PullRequest();   
-        } else if (id == R.id.nav_manage) {
+
+        }
+        else if (id == R.id.user_repo) {
+            fragment = new Repo();
+
+        }
+        else if (id == R.id.user_org) {
+            fragment = new Organization();
+
+        }
+        else if (id == R.id.nav_pulls) {
+            fragment = new PullRequest();
+
+        }else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 
@@ -126,15 +139,8 @@ public class Index extends AppCompatActivity
 
         }
 
-        if (fragment != null && !title.equals("")) {
+        if (fragment != null) {
             fragmentTransaction(fragment);
-            changeTitle(title);
-        }
-    }
-
-    private void changeTitle(String title) {
-        if (!Objects.equals(title, "")) {
-            getSupportActionBar().setTitle(title);
         }
     }
 
