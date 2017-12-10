@@ -1,5 +1,6 @@
 package io.codefault.githubsummer;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +47,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String userName = username.getText().toString().trim();
                 String pass = password.getText().toString().trim();
+
+                final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this,
+                        R.style.Theme_AppCompat_Light_Dialog_MinWidth);
+                progressDialog.setIndeterminate(true);
+                progressDialog.setMessage("Authenticating...");
+                progressDialog.show();
 
                 AuthenticationService obj = ServiceClient.createInterface(AuthenticationService.class);
 
