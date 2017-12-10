@@ -10,14 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.codefault.githubsummer.ApiInterfaces.AuthenticationService;
 import io.codefault.githubsummer.ServiceClient.ServiceClient;
 import retrofit2.Call;
-import retrofit2.CallAdapter;
 import retrofit2.Callback;
 import retrofit2.Response;
 

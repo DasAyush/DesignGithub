@@ -7,7 +7,6 @@ import io.codefault.githubsummer.Models.IssueCommentModel;
 import io.codefault.githubsummer.Models.IssueModel;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
