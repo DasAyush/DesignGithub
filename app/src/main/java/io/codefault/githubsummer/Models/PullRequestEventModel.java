@@ -3,11 +3,13 @@ package io.codefault.githubsummer.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by yashladha on 7/12/17.
  */
 
-public class PullRequestEventModel {
+public class PullRequestEventModel implements Serializable{
 
     @SerializedName("title")
     @Expose
@@ -41,25 +43,9 @@ public class PullRequestEventModel {
     @Expose
     private String mergedAt;
 
-    @SerializedName("assignees")
-    @Expose
-    private String assignees;
-
     @SerializedName("user")
     @Expose
-    private String user;
-
-    @SerializedName("head")
-    @Expose
-    private String head;
-
-    @SerializedName("base")
-    @Expose
-    private String base;
-
-    @SerializedName("requested_reviewers")
-    @Expose
-    private String requestedReviewers;
+    private PullRequestUserModel user;
 
     @SerializedName("milestone")
     @Expose
@@ -72,6 +58,14 @@ public class PullRequestEventModel {
     @SerializedName("author_association")
     @Expose
     private String authorAssociation;
+
+    public PullRequestUserModel getUser() {
+        return user;
+    }
+
+    public void setUser(PullRequestUserModel user) {
+        this.user = user;
+    }
 
     public String getLinks() {
         return links;
@@ -87,22 +81,6 @@ public class PullRequestEventModel {
 
     public void setAuthorAssociation(String authorAssociation) {
         this.authorAssociation = authorAssociation;
-    }
-
-    public String getAssignees() {
-        return assignees;
-    }
-
-    public void setAssignees(String assignees) {
-        this.assignees = assignees;
-    }
-
-    public String getRequestedReviewers() {
-        return requestedReviewers;
-    }
-
-    public void setRequestedReviewers(String requestedReviewers) {
-        this.requestedReviewers = requestedReviewers;
     }
 
     public String getMilestone() {

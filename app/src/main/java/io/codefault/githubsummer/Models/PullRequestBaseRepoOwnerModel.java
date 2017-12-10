@@ -37,7 +37,6 @@ public class PullRequestBaseRepoOwnerModel {
         this.type = type;
     }
 
-
     public String getLogin() {
         return login;
     }

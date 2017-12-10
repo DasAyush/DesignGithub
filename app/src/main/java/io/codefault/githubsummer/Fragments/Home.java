@@ -93,6 +93,7 @@ public class Home extends Fragment {
                     @Override
                     public void onFailure(Call<List<Feed>> call, Throwable t) {
                         Toast.makeText(mContext, "False", Toast.LENGTH_SHORT).show();
+                        Log.d("Error", t.getMessage());
                     }
                 }
         );
