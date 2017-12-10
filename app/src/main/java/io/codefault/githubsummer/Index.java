@@ -21,6 +21,7 @@ import java.util.Objects;
 
 import io.codefault.githubsummer.Fragments.Home;
 import io.codefault.githubsummer.Fragments.Issue;
+import io.codefault.githubsummer.Fragments.PullRequest;
 
 public class Index extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -114,7 +115,9 @@ public class Index extends AppCompatActivity
 
         } else if (id == R.id.nav_issues) {
             fragment = new Issue();
-            title = "Issues";
+              title = "Issues";
+        }else if (id == R.id.nav_pulls) {
+            fragment = new PullRequest();   
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

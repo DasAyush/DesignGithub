@@ -16,6 +16,12 @@
             android:id="@+id/nav_issues"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Issues" />
+
+        <item
+            android:id="@+id/nav_pulls"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Pull Requests" />
+
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"

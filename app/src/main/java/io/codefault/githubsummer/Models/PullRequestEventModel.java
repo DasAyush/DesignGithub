@@ -3,11 +3,13 @@ package io.codefault.githubsummer.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by yashladha on 7/12/17.
  */
 
-public class PullRequestEventModel {
+public class PullRequestEventModel implements Serializable{
 
     @SerializedName("title")
     @Expose
@@ -40,6 +42,54 @@ public class PullRequestEventModel {
     @SerializedName("merged_at")
     @Expose
     private String mergedAt;
+
+    @SerializedName("user")
+    @Expose
+    private PullRequestUserModel user;
+
+    @SerializedName("milestone")
+    @Expose
+    private String milestone;
+
+    @SerializedName("links")
+    @Expose
+    private String links;
+
+    @SerializedName("author_association")
+    @Expose
+    private String authorAssociation;
+
+    public PullRequestUserModel getUser() {
+        return user;
+    }
+
+    public void setUser(PullRequestUserModel user) {
+        this.user = user;
+    }
+
+    public String getLinks() {
+        return links;
+    }
+
+    public void setLinks(String links) {
+        this.links = links;
+    }
+
+    public String getAuthorAssociation() {
+        return authorAssociation;
+    }
+
+    public void setAuthorAssociation(String authorAssociation) {
+        this.authorAssociation = authorAssociation;
+    }
+
+    public String getMilestone() {
+        return milestone;
+    }
+
+    public void setMilestone(String milestone) {
+        this.milestone = milestone;
+    }
 
     public String getTitle() {
         return title;
@@ -104,4 +154,6 @@ public class PullRequestEventModel {
     public void setMergedAt(String mergedAt) {
         this.mergedAt = mergedAt;
     }
+
+
 }
