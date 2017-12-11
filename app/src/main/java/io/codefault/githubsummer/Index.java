@@ -110,28 +110,26 @@ public class Index extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     private void InflateClick(int id) {
         Fragment fragment = null;
+        String title = "";
 
         if (id == R.id.nav_home) {
             fragment = new Home();
-        }
-        else if (id == R.id.nav_trending) {
+            title = "Home";
+        } else if (id == R.id.nav_trending) {
 
         } else if (id == R.id.nav_issues) {
             fragment = new Issue();
-
-        }
-        else if (id == R.id.user_repo) {
+            title = "Issue";
+        } else if (id == R.id.user_repo) {
             fragment = new Repo();
-
-        }
-        else if (id == R.id.user_org) {
+            title = "Repository";
+        } else if (id == R.id.user_org) {
             fragment = new Organization();
-
-        }
-        else if (id == R.id.nav_pulls) {
+            title = "Organisation";
+        } else if (id == R.id.nav_pulls) {
             fragment = new PullRequest();
-
-        }else if (id == R.id.nav_manage) {
+            title = "Pull request";
+        } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 
@@ -139,8 +137,9 @@ public class Index extends AppCompatActivity
 
         }
 
-        if (fragment != null) {
+        if (fragment != null && !title.equals("")) {
             fragmentTransaction(fragment);
+            getSupportActionBar().setTitle(title);
         }
     }
 

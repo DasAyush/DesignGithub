@@ -1,8 +1,6 @@
 package io.codefault.githubsummer.Fragments;
 
-import android.app.Fragment;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,11 +16,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.codefault.githubsummer.Adapters.IssueListAdapter;
 import io.codefault.githubsummer.Adapters.PullRequestListAdapter;
-import io.codefault.githubsummer.ApiInterfaces.IssueClient;
 import io.codefault.githubsummer.ApiInterfaces.PullRequestClient;
-import io.codefault.githubsummer.Models.IssueModel;
 import io.codefault.githubsummer.Models.PullRequestEventModel;
 import io.codefault.githubsummer.R;
 import io.codefault.githubsummer.ServiceClient.ServiceClient;

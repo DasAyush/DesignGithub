@@ -67,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Authentication Successfull", Toast.LENGTH_SHORT).show();
                         ServiceClient.setAuthEncoded(Base64.encodeToString(encodedString.getBytes(), Base64.NO_WRAP));
                         ServiceClient.setUsername(userName);
+                        progressDialog.dismiss();
                         Intent intent = new Intent(getBaseContext(), Index.class);
                         startActivity(intent);
                         finish();
@@ -75,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
                         Log.d("Error", t.getMessage());
+                        progressDialog.dismiss();
                         Toast.makeText(getBaseContext(), "Authentication Not Successfull", Toast.LENGTH_SHORT).show();
                     }
                 });

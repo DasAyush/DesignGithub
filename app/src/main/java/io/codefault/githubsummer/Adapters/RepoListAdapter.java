@@ -36,13 +36,12 @@ public class RepoListAdapter extends RecyclerView.Adapter<RepoListAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, int position) {
         RepoModel temObj = list.get(position);
         Picasso.with(mContext)
-                .load(temObj.getAvatarUrl())
+                .load(temObj.getOwner().getAvatarUrl())
                 .fit()
                 .into(holder.avatarUrl);
         holder.name.setText(temObj.getName());
         holder.fullName.setText(temObj.getFullName());
         holder.langauge.setText(temObj.getLanguage());
-        holder.defaultbranch.setText(temObj.getDefaultBranch());
 
     }
 
@@ -63,11 +62,11 @@ public class RepoListAdapter extends RecyclerView.Adapter<RepoListAdapter.ViewHo
         public ViewHolder(final View itemView){
             super(itemView);
 
-            avatarUrl = (ImageView)itemView.findViewById(R.id.cv_repo_avatar);
-            name = (TextView)itemView.findViewById(R.id.tv_repo_name);
-            fullName = (TextView)itemView.findViewById(R.id.tv_repo_fullname);
-            langauge = (TextView)itemView.findViewById(R.id.tv_repo_language);
-            defaultbranch = (TextView)itemView.findViewById(R.id.tv_repo_branch);
+            avatarUrl = itemView.findViewById(R.id.cv_repo_avatar);
+            name = itemView.findViewById(R.id.tv_repo_name);
+            fullName = itemView.findViewById(R.id.tv_repo_fullname);
+            langauge = itemView.findViewById(R.id.tv_repo_language);
+            defaultbranch = itemView.findViewById(R.id.tv_repo_branch);
 
         }
     }

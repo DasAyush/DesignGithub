@@ -13,9 +13,9 @@ public class RepoModel {
     @Expose
     private String fullName;
 
-    @SerializedName("avatar_url")
+    @SerializedName("owner")
     @Expose
-    private String avatarUrl;
+    private OwnerModel owner;
 
     @SerializedName("language")
     @Expose
@@ -42,16 +42,16 @@ public class RepoModel {
         this.fullName = fullName;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
-    }
-
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
-    }
-
     public String getLanguage() {
         return language;
+    }
+
+    public OwnerModel getOwner() {
+        return owner;
+    }
+
+    public void setOwner(OwnerModel owner) {
+        this.owner = owner;
     }
 
     public void setLanguage(String language) {
