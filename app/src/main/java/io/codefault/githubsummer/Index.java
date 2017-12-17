@@ -40,15 +40,6 @@ public class Index extends AppCompatActivity
     }
 
     private void setUpDrawer(Toolbar toolbar) {
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -115,8 +106,6 @@ public class Index extends AppCompatActivity
         if (id == R.id.nav_home) {
             fragment = new Home();
             title = "Home";
-        } else if (id == R.id.nav_trending) {
-
         } else if (id == R.id.nav_issues) {
             fragment = new Issue();
             title = "Issue";
@@ -129,12 +118,6 @@ public class Index extends AppCompatActivity
         } else if (id == R.id.nav_pulls) {
             fragment = new PullRequest();
             title = "Pull request";
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         if (fragment != null && !title.equals("")) {
