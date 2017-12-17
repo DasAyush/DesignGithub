@@ -17,11 +17,19 @@
             android:title="Repository"
             android:icon="@drawable/ic_home"/>
 
+
+
         <item
             android:id="@+id/user_org"
             android:icon="@drawable/ic_home"
             android:title="Organizations"
             />
+
+        <item android:id="@+id/public_repo"
+            android:title="Public Repo"
+            android:icon="@drawable/ic_home"/>
+
+
         <item
             android:id="@+id/nav_pulls"
             android:icon="@drawable/ic_menu_slideshow"
