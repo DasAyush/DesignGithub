@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Retro Github</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>Hello World</section>
+        <section>
+            <h4>Overview</h4>
+            <ul>
+                <li>Introduction</li>
+                <li>Git and Github</li>
+                <li>Github API</li>
+                <li>Retrofit</li>
+                <li>Usage in Project</li>
+                <li>Future Enhancements</li>
+            </ul>
+        </section>
+        <section data-transition="zoom">
+            <h6>Introduction</h6>
+            <p class="fragment fade-up">Github is a VCS.</p>
+            <p class="fragment fade-up">Uses Git as a tool.</p>
+            <p class="fragment fade-up">Git is developed by father of linux - Linus Trovald</p>
+        </section>
+        <section data-transition="zoom">
+            <h6>Git and Github</h6>
+            <p class="fragment fade-in">
+                GitHub is a web-based Git version control repository hosting service.
+            </p>
+            <span class="fragment fade-up">
+                <img src="gif/github.gif" style="height: 300px;">
+            </span>
+        </section>
+        <section>
+            Is there a medium other than website to interact with this awesome site??
+            <p class="fragment fade-up">Answer: Technically No!!</p>
+        </section>
+        <section
+                data-transition="slide"
+                data-transition-speed="fast"
+                data-background="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif">
+            Don't be sad dev's, there is another way to tackle this problem.
+        </section>
+        <section data-transition="zoom" data-markdown="">
+            ### GITHUB API
+            * *_API URL_* : `https://api.github.com`
+            * There are several authorization method available for use.
+                1. Basic Auth
+                2. OAuth (Sent in Header)
+                3. Oauth Token (Sent as parameter)
+        </section>
+        <section data-transition="slide">
+            <h6>Retrofit</h6>
+            <p class="fragment fade-in">It turns your <i>HTTP API</i> into a Java interface.</p>
+            <p class="fragment fade-in">Call method is associated with the Interface.</p>
+            <p class="fragment fade-in">Call can perform Synchronous / Asynchronous call to request url.</p>
+        </section>
+        <section>
+            <h6>Usage in Project</h6>
+            <p>Parses JSON Responses fetched from the api. Serializes them into respective objects (Java). The
+                data - structure is maintained using this api.
+            </p>
+        </section>
+        <section data-transition-speed="slow">
+            <h6>Future Enhancements</h6>
+            <ul>
+                <li>Custom web view class for better rendering.</li>
+                <li>Porting the code in React native for multiplatform.</li>
+                <li>Implementing all the github api endpoints.</li>
+            </ul>
+        </section>
+        <section data-transition="slide"
+                 data-transition-speed="slow">
+            <h2>Thank You For Reading</h2>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'convex',
+        backgroundTransition: 'fade',
+        markdown: {
+            smartypants: true
+        },
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
