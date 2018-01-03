@@ -123,11 +123,6 @@ public class Index extends AppCompatActivity
         else if (id == R.id.public_repo) {
             fragment = new PublicRepo();
             title = "Public Repo";
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
         }
 
         if (fragment != null && !title.equals("")) {
